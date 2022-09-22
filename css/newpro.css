@@ -1,0 +1,17 @@
+.datails{
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+}
+.datails img{
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+.smallimg img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}

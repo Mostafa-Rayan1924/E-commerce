@@ -1,0 +1,11 @@
+.blog{
+    background-image: url(../imgs/about/banner.png);
+ }
+ .video span{
+    color: var(--main);
+ }
+ video{
+    width: 700px;
+    border-radius: 10px;
+    max-width: 100%;
+ }

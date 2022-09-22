@@ -1,0 +1,25 @@
+.blog{
+   background-image: url(../imgs/banner/b1.jpg);
+}
+.blogbox {
+padding: var(--padding) ;
+ }
+ .boxes{
+    margin-bottom: 100px;
+ }
+ .blogbox .container span{
+    color: var(--main);
+ }
+ .blogbox img{
+    height: 300px;
+    object-fit: cover;
+ }
+ .blogbox .image{
+    position: relative;
+ }
+ .blogbox .image h4{
+    position: absolute;
+    font-size: 60px;
+    top: -50px;
+    z-index: -2;
+ }
