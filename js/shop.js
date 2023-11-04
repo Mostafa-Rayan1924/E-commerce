@@ -99,3 +99,7 @@ function GoCartDetails(id) {
   localStorage.setItem("cartDetailsItem", JSON.stringify(itemChoosen));
   window.location = "../html/productDetails.html";
 }
+let cartLocation = document.getElementById("cartLocation");
+cartLocation.onclick = () => {
+  window.location = "/html/product.html";
+};

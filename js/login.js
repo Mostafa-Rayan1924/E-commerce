@@ -12,7 +12,7 @@ login.onclick = function (eo) {
       localStorage.getItem("password").trim() === password.value.trim()
     ) {
       setTimeout(() => {
-        window.location = "../html/index.html";
+        window.location = "../index.html";
       }, 1000);
     }
   }
