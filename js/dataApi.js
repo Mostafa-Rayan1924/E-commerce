@@ -1,6 +1,6 @@
 let productsApi = [
   {
-    id: 1,
+    id: 0,
     category: "adidas",
     title: "Cartoon Cotton T-Shirt",
     img: "../imgs/products/f1.jpg",
@@ -8,7 +8,7 @@ let productsApi = [
     price: 158,
   },
   {
-    id: 2,
+    id: 1,
     category: "nike",
     title: "GTA T-Shirt",
     img: "../imgs/products/f2.jpg",
@@ -16,7 +16,7 @@ let productsApi = [
     price: 210,
   },
   {
-    id: 3,
+    id: 2,
     category: "puma",
     title: "flower T-Shirt",
     img: "../imgs/products/f3.jpg",
@@ -24,7 +24,7 @@ let productsApi = [
     price: 300,
   },
   {
-    id: 4,
+    id: 3,
     category: "adidas",
     title: "white flower T-Shirt",
     img: "../imgs/products/f4.jpg",
@@ -32,7 +32,7 @@ let productsApi = [
     price: 40,
   },
   {
-    id: 5,
+    id: 4,
     category: "apipas",
     title: "blue T-Shirt",
     img: "../imgs/products/f5.jpg",
@@ -40,7 +40,7 @@ let productsApi = [
     price: 130,
   },
   {
-    id: 6,
+    id: 5,
     category: "zara",
     title: "two colors T-Shirt",
     img: "../imgs/products/f6.jpg",
@@ -48,7 +48,7 @@ let productsApi = [
     price: 111,
   },
   {
-    id: 7,
+    id: 6,
     category: "eltaw7ed",
     title: "eltaw7ed T-Shirt",
     img: "../imgs/products/f7.jpg",
@@ -56,7 +56,7 @@ let productsApi = [
     price: 400,
   },
   {
-    id: 8,
+    id: 7,
     category: "shein",
     title: "blue skirt",
     img: "../imgs/products/f8.jpg",
@@ -64,7 +64,7 @@ let productsApi = [
     price: 60,
   },
   {
-    id: 9,
+    id: 8,
     category: "adidas",
     title: "sky T-Shirt",
     img: "../imgs/products/n1.jpg",
@@ -72,11 +72,27 @@ let productsApi = [
     price: 450,
   },
   {
-    id: 10,
+    id: 9,
     category: "nike",
     title: "gray T-Shirt",
     img: "../imgs/products/n2.jpg",
     quantity: 1,
     price: 40,
+  },
+  {
+    id: 10,
+    category: "zara",
+    title: "white T-Shirt",
+    img: "../imgs/products/n3.jpg",
+    quantity: 1,
+    price: 90,
+  },
+  {
+    id: 11,
+    category: "adidas",
+    title: "military T-Shirt",
+    img: "../imgs/products/n4.jpg",
+    quantity: 1,
+    price: 170,
   },
 ];

@@ -1,103 +1,101 @@
-// add pro to page with js
-let productcontainer = document.querySelector(".features .container");
-
-let products = JSON.parse(localStorage.getItem("products"));
-let showpro;
-showpro = function (products = []) {
-  let result = ``;
-  let proui = products.map((item) => {
-    result += ` <div  class="box border rounded ">
+// element which add title of item which clicked
+let itemTitle = document.querySelector(".innerproduct div");
+let cirlceOfLengthinCart = document.querySelector(".circle");
+// function to make the products in page
+let parentOfProducts = document.querySelector(".features .container");
+function showProducts() {
+  productsApi.map((item) => {
+    let productsInShop = "";
+    productsInShop = `
+    <div class="box border rounded wow fadeInLeftBig">
     <div class="image">
-        <img onclick="savedid(${item.id})" class="img-fluid rounded"  src="${item.imgurl}" alt="">
+        <img class="img-fluid rounded" src="${item.img}" alt="">
     </div>
     <div class="content">
-        <span class="text-black-50">addidas</span>
-        <h6>${item.title}</h6>
+        <span class="text-black-50">${item.category}</span>
+         <h6 onclick="GoCartDetails(${item.id})" class="cardLink">${item.title}</h6>
          <div class="star d-flex align-items-center">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
          </div>
 <div class="icons d-flex justify-content-between align-items-center">
-<small>$99</small>
-<i  onclick="addedtocart(${item.id})" class="fa-solid fa-cart-plus"></i>
+<small>${item.price}$</small>
+<i onclick=addToCart(${item.id}) class="fa-solid fa-cart-plus go"></i>
 </div>
     </div>
-  </div>`;
+ 
+  </div> 
+    `;
+    parentOfProducts.innerHTML += productsInShop;
   });
-  productcontainer.innerHTML = result;
-};
-showpro(JSON.parse(localStorage.getItem("products")));
-
-// links1,2 two links of navbar 1for signing 2for public
-let linkssign = document.querySelector(".links");
-let linkspublic = document.querySelector(".links2");
-// check if local storage have info of username
-if (localStorage.getItem("username")) {
-  linkssign.style.display = "none";
-  linkspublic.style.display = "flex";
-} else {
-  linkssign.style.display = "flex";
-  linkspublic.style.display = "none";
 }
-// close and open navbar
-let menu = document.querySelector(".bars");
-menu.onclick = function () {
-  linkspublic.classList.toggle("active");
-};
+showProducts();
 
-if (localStorage.getItem("username") === null) {
-  window.location = "../html/signup.html";
-}
-// popup img in shop page
-
-let cartsproducts = document.querySelector(".carts-products");
-let innerproduct = document.querySelector(".innerproduct div");
-let innerproducts = document.querySelector(".innerproduct");
-let carts = document.querySelector(".carts");
-let circlepro = document.querySelector(".circle");
-
-let addeditem;
-if (localStorage.getItem("productincarts")) {
-  addeditem = JSON.parse(localStorage.getItem("productincarts"));
-} else {
-  addeditem = [];
-}
-if (addeditem) {
-  addeditem.map((item) => {
-    innerproduct.innerHTML += `<p class="proname">${item.title}</p>`;
-  });
-  circlepro.innerHTML = addeditem.length;
-  circlepro.style.display = "block";
-}
-function addedtocart(id) {
-  let itemname = document.querySelectorAll(".proname");
-  let choosenitem = products.find((item) => item.id === id);
-
-  addeditem.push(choosenitem);
-  localStorage.setItem("productincarts", JSON.stringify(addeditem));
-
-  innerproduct.innerHTML += `<p class="proname">${choosenitem.title}</p>`;
-  circlepro.innerHTML = itemname.length + 1;
-  circlepro.style.display = "block";
-}
-carts.addEventListener("click", function () {
-  if (innerproduct.innerHTML !== "") {
-    innerproducts.classList.toggle("block");
+let addedItem = localStorage.getItem("productInCart")
+  ? JSON.parse(localStorage.getItem("productInCart"))
+  : [];
+function getDateOfCartFromStorage() {
+  let elementsInCartStorage = "";
+  if (localStorage.getItem("productInCart")) {
+    elementsInCartStorage = JSON.parse(localStorage.getItem("productInCart"));
+    elementsInCartStorage.map((item) => {
+      itemTitle.innerHTML += `<p>${item.title} ( ${item.quantity} )</p>`;
+    });
+    cirlceOfLengthinCart.innerHTML = elementsInCartStorage.length;
   }
-});
-function savedid(id) {
-  localStorage.setItem("proid", id);
-  window.location = "../html/prodtailes.html";
 }
-// search function
-let searchBtn = document.getElementById("search");
-searchBtn.addEventListener("keyup", function (e) {
-  search(e.target.value, JSON.parse(localStorage.getItem("products")));
-  if (e.target.value.trim() === "") {
-    showpro(JSON.parse(localStorage.getItem("products")));
+getDateOfCartFromStorage();
+function addToCart(id) {
+  let clickedItem = productsApi[id];
+  addedItem.push(clickedItem);
+
+  let clickedItemTitle = clickedItem.title;
+  itemTitle.innerHTML += `<p>${clickedItemTitle} ( ${clickedItem.quantity} )</p>`;
+  cirlceOfLengthinCart.innerHTML = addedItem.length;
+
+  localStorage.setItem("productInCart", JSON.stringify(addedItem));
+}
+
+// toggle open menu of items in cart
+document.querySelector(".cartIcon").addEventListener("click", () => {
+  if (addedItem.length > 0 || elementsInCartStorage.length > 0) {
+    document
+      .querySelector(".carts-products .innerproduct")
+      .classList.toggle("block");
   }
 });
 
-function search(title, myArray) {
-  let arr = myArray.filter((item) => item.title.indexOf(title) !== -1);
-  showpro(arr);
+// function search
+function searchItem(value) {
+  parentOfProducts.innerHTML = "";
+  let itemsSearch = productsApi.map((item) => {
+    if (item.title.toLowerCase().includes(value.toLowerCase())) {
+      let productsInShop = "";
+      productsInShop = `
+        <div class="box border rounded wow fadeInLeftBig">
+        <div class="image">
+            <img class="img-fluid rounded" src="${item.img}" alt="">
+        </div>
+        <div class="content">
+            <span class="text-black-50">${item.category}</span>
+            <h6 class="cardLink">${item.title}</h6>
+             <div class="star d-flex align-items-center">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+             </div>
+    <div class="icons d-flex justify-content-between align-items-center">
+    <small>${item.price}$</small>
+    <i onclick=addToCart(${item.id}) class="fa-solid fa-cart-plus go"></i>
+    </div>
+        </div>
+     
+      </div> 
+        `;
+      parentOfProducts.innerHTML += productsInShop;
+    }
+  });
+}
+
+function GoCartDetails(id) {
+  let itemChoosen = productsApi[id];
+  localStorage.setItem("cartDetailsItem", JSON.stringify(itemChoosen));
+  window.location = "../html/productDetails.html";
 }

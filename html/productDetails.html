@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="../css/style.css">
  <link rel="stylesheet" href="../css/shop.css">
+ <link rel="stylesheet" href="../css/product.css">
  <link rel="stylesheet" href="../css/animate.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css">
@@ -13,7 +14,6 @@
     <title>Rayanco</title>
 </head>
 <body>
-    <div id="preload"></div>
     <span id="up">up</span>
     <div class="setting-box">
       <div  class="icon">
@@ -42,19 +42,11 @@
             </ul>
             <ul class="link links2 ms-auto">
                 <li><a href="index.html" >home</a></li>
-                <li><a href="#" class="active">shop</a></li>
+                <li><a href="../html/shop.html" class="">shop</a></li>
                 <li><a href="../html/blog.html">blog</a></li>
                 <li><a href="../html/about.html">about</a></li>
                 <li><a href="../html/contact.html">contact</a></li>
-                <li class="carts-products">
-                 <i style="cursor: pointer;" class="fa-solid fa-cart-plus cart1 carts cartIcon"></i>
-                     <span class="circle">0</span>
-                     <div class="innerproduct">
-                        <div>
-                        </div>
-                        <a class="pros" href="product.html">all product</a>
-                     </div>
-                </li>
+              
                 <li><button class="logout">logout</button></li>
             </ul>
            <div class="phone d-flex align-items-center">
@@ -63,36 +55,9 @@
            </div>
         </div>
       </header>
-      <div class="blog text-center">
-        <div class="container">
-            <p class="d-block" >#stayhome</p>
-             <span class="text-white-50">Lorem ipsum dolor sit amet consectetur.</span>
-        </div>
-        </div>
-          <div class="features">
-            <div class="main-title text-center mb-5">
-                <h1 class="mb-2">products</h1>
-                <p class="text-black-50">summer collection new modern design</p>
-            </div>
-            <input onkeyup="searchItem(this.value)" class="inpSearch" type="search" placeholder="search by title of items">
-            <div class="container"> 
-
-        </div>
-          </div>
-          <div class="newsleeter my-5">
-            <div class="container">
-                <div class="row">
-                <div class="content1 col-md-6">
-                <h5>sign up for newsleeter</h5>
-                <p class="text-white-50">Lorem ipsum dolor sit amet consectetur <span>special offers</span></p>
-                </div>
-                <div class="content2 col-md-6 d-flex align-items-center ">
-                  <input type="text" placeholder="your email address">
-                  <button class="bloge">Signup</button>
-                </div>
-            </div>
-            </div>
-          </div>
+      <div class="container parentOfCartDetails">
+       
+      </div>
           <footer >
             <div class="container">
                 <div class="box1">
@@ -131,12 +96,12 @@
                     <img src="../imgs/pay/pay.png" alt="">
                 </div>
             </div>
+       
         </footer>
         <script src="../js/index.js"></script>
-        <script src="../js/dataApi.js"></script>
-        <script src="../js/shop.js"></script>
         <script src="../js/user.js"></script>
         <script src="../js/wow.min.js"></script>
+        <script src="../js/productdetails.js"></script>
         <script>
         new WOW().init();
         </script>

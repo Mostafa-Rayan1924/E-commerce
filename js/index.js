@@ -1,16 +1,3 @@
-// let btngoshopping = document.querySelector(".shopping");
-// btngoshopping.onclick = function () {
-//   window.location = "../html/shop.html";
-// };
-document.querySelector(".cart").onclick = function () {
-  window.location = "../html/product.html";
-};
-let logoutbtn = document.querySelector(".logout");
-logoutbtn.onclick = function () {
-  window.alert("are you sure");
-  localStorage.clear();
-  window.location = "../html/signup.html";
-};
 function imgs() {
   let imgsproduct = document.querySelectorAll(
     ".features .container .image img"
@@ -63,11 +50,10 @@ gear.addEventListener("click", function (e) {
   // 2-put class open to open setting box
   settingBox.classList.toggle("open");
 });
-
 // get value of setlocal storage
-if (localStorage.length > 0) {
+if (localStorage.getItem("color") !== null) {
   document.documentElement.style.setProperty(
-    " --main",
+    "--main",
     localStorage.getItem("color")
   );
   // remove active class from all again to equal with item which in local storage
@@ -87,10 +73,9 @@ liBalls.forEach((item) => {
     // body setproperty change main color with the current item
     document.documentElement.style.setProperty("--main", item.dataset.color);
     // remove active class from all elements
-    item.parentElement
-      .getElementsByClassName("actived")[0]
-      .classList.remove("actived");
-    // add active class for current element
+    liBalls.forEach((li) => {
+      li.classList.remove("actived");
+    });
     item.classList.add("actived");
     // set color value into local storage
     localStorage.setItem("color", item.dataset.color);
@@ -109,13 +94,13 @@ window.onscroll = function () {
   }
 };
 // preloader while reload
-let preloader = document.getElementById("preload");
-window.onload = function () {
-  preloader.style.display = "block";
-  setTimeout(() => {
-    preloader.style.display = "none";
-  }, 3000);
-};
+// let preloader = document.getElementById("preload");
+// window.onload = function () {
+//   preloader.style.display = "block";
+//   setTimeout(() => {
+//     preloader.style.display = "none";
+//   }, 3000);
+// };
 // scroll to top
 let up = document.getElementById("up");
 window.addEventListener("scroll", function () {
@@ -132,3 +117,12 @@ up.onclick = function () {
     behavior: "smooth",
   });
 };
+
+let logBtn = document.querySelector(".logout");
+logBtn.addEventListener("click", () => {
+  let confirmMsg = confirm("are you sure");
+  if (confirmMsg) {
+    localStorage.clear();
+    window.location = "../html/signup.html";
+  }
+});

@@ -1,39 +1,38 @@
-.accept{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--bg);
-    text-align: center;
-    width: 400px;
-    height: 200px;
-    border-radius: 6px;
-    display: none;
+.removeFormCart {
+  background-color: crimson;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
 }
-.active{
-    display: block;
+.noItem {
+  text-align: center;
 }
-.accept h3{
-    line-height: 200px;
+.element {
+  text-align: center;
+  margin: 50px auto;
 }
-.accept i{
-    color: var(--main);
+.element img {
+  display: block;
+  padding: 10px;
+  border: 3px solid teal !important;
+  border-radius: 10px;
+  width: 500px;
+  margin: 20px auto;
 }
-.heart{
-    top: 0;
-    position: fixed;
-    font-size: 25px;
-    animation: fall 2s 1 linear forwards ;
-  }
-  @keyframes fall{
-    0%{
-      transform: translateY(-5vh);
-    }
-    100%{
-      transform: translateY(110vh);
-    }
-  }
-  .nopro{
-   text-align: center;
-  font-size: 25px;
-  }
+
+.element p {
+  width: 800px;
+  line-height: 1.8;
+  color: #777;
+  margin: 30px auto;
+}
+.element .d-flex {
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 20px;
+  text-align: center;
+}
